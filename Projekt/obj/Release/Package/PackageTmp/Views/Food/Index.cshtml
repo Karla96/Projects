@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Projekt.DAL.Models.Food>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of food</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Food", null, new { @class = "btn btn-success" })
+</p>
+
+
+
+<div id="filter-wrapper">
+
+</div>
+
+<div id="table-wrapper">
+    @Html.Partial("_IndexTable", Model)
+</div>
+
+
+@section scripts {
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            
+            $.ajax({
+                url: '@Url.Action("FilterForm", "Food")',
+                method: "GET",
+                success: function (result) {
+                    $("#filter-wrapper").html(result);
+                }
+            })
+        });
+
+        function applyFilter(sender) {
+            var formSerialized = $(sender).closest('form').serialize();
+
+            $.ajax({
+                url: '@Url.Action("IndexAjax", "Food")',
+                method: "POST",
+                data: formSerialized,
+                success: function (result) {
+                    $("#table-wrapper").find("table").replaceWith(result);
+                    
+                }
+            })
+        }
+</script>
+}

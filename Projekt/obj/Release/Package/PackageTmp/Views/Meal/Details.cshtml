@@ -1,0 +1,71 @@
+﻿@model Projekt.DAL.Models.Meal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details about "@Model.Name"</h2>
+<br />
+
+@using (Html.BeginForm("AddFood", "Meal", new { id = Model.Id }))
+{
+    <div>
+        <hr />
+
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+
+            <div class="table-responsive table-bordered" style="width:40%">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Portion
+                        </th>
+                        <th>
+                            Serving Size
+                        </th>
+                        <th>
+                            Calories
+                        </th>
+                        <th>
+                            Carbs
+                        </th>
+                        <th>
+                            Fat
+                        </th>
+                        <th>
+                            Protein
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var food in Model.Foods)
+                    {
+                        <tr>
+                            <td> @food.Name </td>
+                            <td> @food.Portion</td>
+                            <td> @food.ServingSize </td>
+                            <td> @food.Calories </td>
+                            <td> @food.Carbs </td>
+                            <td> @food.Fat </td>
+                            <td> @food.Protein </td>
+                           
+                        </tr>
+                    }
+                </table>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add food[Admin]" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<p>
+   <!--@Html.ActionLink("Edit Name", "Edit", new { id = Model.Id }) |-->
+    @Html.ActionLink("Back to List", "Index", "Meal", null, new { @class ="btn btn-default" })
+</p>

@@ -1,0 +1,79 @@
+﻿﻿﻿﻿﻿@model List<Projekt.DAL.Models.Food>
+
+<table class="table">
+    <tr>
+        <th>
+            Name:
+        </th>
+        <th>
+            Portion:
+        </th>
+        <th>
+            Serving size:
+        </th>
+        <th>
+            Calories:
+        </th>
+        <th>
+            Carbs:
+        </th>
+        <th>
+            Fats:
+        </th>
+        <th>
+            Proteins:
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr data-delete-url="@Url.Action("DeleteAjax", "Food", new { id = item.Id })">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Portion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServingSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carbs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Protein)
+            </td>
+            <td >
+                @Html.ActionLink("Edit", "Edit", "Food", new { id = item.Id }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Details", "Details", "Food", new { id = item.Id }, new { @class = "btn btn-default" })
+                <a href="javascript:void(0)" onclick="deleteRow(this)" class="btn btn-danger">Delete</a>
+            </td>
+    </tr>
+
+
+}
+
+</table>
+
+<script type="text/javascript">
+    function deleteRow(sender) {
+        var row = $(sender).closest('tr');
+
+        $.ajax({
+            url: row.data("delete-url"),
+            method: "POST",
+            success: function (result) {
+                if (result.isSuccess) {
+                    row.slideUp('fast', function () { row.remove() });
+                }
+            }
+        })
+    }
+</script>

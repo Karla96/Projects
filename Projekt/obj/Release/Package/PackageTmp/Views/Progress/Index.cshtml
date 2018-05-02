@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Projekt.DAL.Models.Progress>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Info</h2> <hr/>
+<div class="">
+    @foreach (var p in Model)
+    {
+        <p>To maintain your weight, your daily calorie intake should be around: <strong>@p.UserDailyCalories kcal</strong> </p>
+        <p>Current weight: <strong>@p.Weight kg </strong></p>
+
+    }
+</div>
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Projekt.DAL.Models.Meal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Meals</h2>
+
+<p>
+    @Html.ActionLink("Create New[Admin]", "Create", "Meal", null, new { @class = "btn btn-success" })
+</p>
+<table class=" text-center " style="width:40%">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit[Admin]", "Edit", "Meal", new { id = item.Id }, new { @class= "btn btn-info" }) 
+                @Html.ActionLink("Details", "Details", "Meal", new { id = item.Id }, new { @class ="btn btn-default"}) 
+                @Html.ActionLink("Delete[Admin]", "Delete", "Meal", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

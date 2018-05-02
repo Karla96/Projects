@@ -1,0 +1,27 @@
+﻿@model Projekt.DAL.Models.ViewModelForMeal
+
+<h1>Add food</h1>
+@using (Html.BeginForm("AddFoodToMeal", "Meal"))//, new { selected = Model.SelectedId, id = Model.MealId }))
+{
+    <div class="form-inline" style="margin-bottom: 30px;">
+        <div class="form-group">
+            @Html.DropDownListFor(p => p.SelectedId, (IEnumerable<SelectListItem>)ViewBag.PossibleFoods, new { @class = "form-control" })
+            @Html.HiddenFor(p => p.MealId)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Add food" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+
+
+@section scripts {
+
+    <script type="text/javascript">
+
+
+    </script>
+
+}

@@ -1,0 +1,102 @@
+﻿@model Projekt.DAL.Models.Recipe
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details about @Model.Name</h2>
+
+<div>
+    <hr />
+    @using (Html.BeginForm("AddFood", "Recipes", new { id = Model.Id }))
+    {
+        <dl class="dl-horizontal col-sm-6">
+            <dt>
+                Name:
+                @Html.HiddenFor(model => model.Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                Number of servings:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoServings)
+            </dd>
+
+            <dt>
+                Description:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                Total calories:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalCalories)
+            </dd>
+
+            <dt>
+                Total carbohydrates:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalCarbos)
+            </dd>
+
+            <dt>
+                Total fats:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalFats)
+            </dd>
+
+            <dt>
+                Total proteins:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalProteins)
+            </dd>
+
+
+        </dl>
+        <div class="table-responsive" style="width:40%">
+            <table class="table">
+                <tr>
+                    <th>Name:</th>
+                    <th>Portion:</th>
+                    <th>Calories:</th>
+                </tr>
+                @foreach (var food in Model.Foods)
+    {
+
+            <tr>
+                <td> @food.Name </td>
+                <td> @food.Portion</td>
+                <td> @food.Calories </td>
+
+
+            </tr>
+}
+            </table>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add food" class="btn btn-success" />
+                @Html.ActionLink("Back to List", "Index", "Recipes", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+
+    }
+
+</div>

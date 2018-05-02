@@ -1,0 +1,35 @@
+﻿@model Projekt.DAL.Models.User
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Diet Plan</h2>
+    <p class="lead"> Your optimal number of calories per day is: @Model.DailyCalories . </p>
+    <!--<p><a href="https://asp.net" class="btn btn-primary btn-lg">Add food &raquo;</a></p>-->
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            Add food or choose it from our pre-filled database.
+        </p>
+        <img src="https://www.rd.com/wp-content/uploads/2017/10/12_Citrus_Healthy-Holiday-Food-Gifts-Instead-of-Fruit-Cake_524210419-ch_ch.jpg"
+             style="width:300px;" />
+
+    </div>
+    <div class="col-md-4">
+        <h3>Preview suggested meals agreed by our nutricionists.</h3>
+        <p> This maybe give you some ideas!  </p>
+        <img src="http://ordinacija.vecernji.hr/repository/images/_variations/9/a/9aa96726229d38d126126dcc4fa70ec7-hero.jpg?v=1"
+             style="width:350px;" />
+    </div>
+    <div class="col-md-4">
+        <h2> Add recipes </h2>
+        <p> You can creat your own meal and preview its total calories and macronutrients. </p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsw8l7DiDJdcdxlVP1gZyHoY1oGNNhLNP5bovXkYn6EU6gb6NT2Q"
+             style="width:300px" />
+    </div>
+</div>

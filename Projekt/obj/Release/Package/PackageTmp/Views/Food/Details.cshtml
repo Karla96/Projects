@@ -1,0 +1,73 @@
+﻿@model Projekt.DAL.Models.Food
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Portion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Portion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServingSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServingSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carbs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carbs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Protein)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Protein)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", "Food", new { id = Model.Id }, new { @class = "btn btn-info"}) 
+    @Html.ActionLink("Back to List", "Index", "Food", null, new { @class =" btn btn-default" })
+</p>
